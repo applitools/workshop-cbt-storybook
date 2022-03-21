@@ -25,6 +25,11 @@ Key takeaways:
 * How to accelerate cross-browser and cross-device testing for Storybook components using visual testing techniques
 
 
+## Outline
+
+TBD
+
+
 ## Prerequisites
 
 1. An Applitools account
