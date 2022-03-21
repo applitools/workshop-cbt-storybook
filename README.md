@@ -9,6 +9,9 @@ with [Applitools Eyes](https://applitools.com/products-eyes/).
 Applitools Eyes will perform visual tests on Storybook components
 *without* the need to write any extra test code!
 
+In fact, the main page of this app explains *why* components need visual testing.
+Run the app, open its main page, and start learning!
+
 This project was created for the
 [Modern Cross Browser Testing for Storybook Components](http://applitools.info/vbm) workshop
 led by [Pandy Knight](https://twitter.com/AutomationPanda)
@@ -30,7 +33,7 @@ Full instructions for the workshop are provided in [`WORKSHOP.md`](WORKSHOP.md).
 1. An Applitools account (Register [here](https://auth.applitools.com/users/register) for a free account)
 2. [Node.js](https://nodejs.org/en/) (This project was created with v16.13.1)
 3. A JavaScript IDE like [Visual Studio Code](https://code.visualstudio.com/docs/languages/javascript)
-4. Up-to-date versions of your favorite web browsers.
+4. Up-to-date versions of your favorite web browsers
 
 
 ## Quickstart
