@@ -71,3 +71,13 @@ npm run storybook
 This command starts the viewer at `http://localhost:6006/`.
 When it loads, you should see components on the left navbar,
 and the main part of the page should be a component viewer.
+
+To launch visual tests using Applitools,
+set the `APPLITOOLS_API_KEY` environment variable to your secret API key,
+and then run:
+
+```bash
+npx eyes-storybook
+```
+
+Visual test results will appear in the Applitools dashboard.
