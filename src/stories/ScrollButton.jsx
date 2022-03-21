@@ -10,7 +10,8 @@ export const ScrollButton = ({ scrollToId, ...props }) => {
     >
       <img
         src="white-down-arrow.png" 
-        className="storybook-scroll-arrow" />
+        className="storybook-scroll-arrow"
+        alt="Scroll Button" />
     </a>
   );
 };
