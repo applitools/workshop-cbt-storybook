@@ -8,3 +8,23 @@ led by [Pandy Knight](https://twitter.com/AutomationPanda)
 and hosted by [Applitools](https://applitools.com/).
 You can code along with the video recordings,
 or you can reference it afterwards to help you learn more.
+
+
+## Understanding our React app
+
+TBD
+
+
+## Manually testing Storybook components
+
+TBD
+
+
+## Visually testing Storybook components
+
+TBD
+
+
+## Testing components across different browsers
+
+TBD

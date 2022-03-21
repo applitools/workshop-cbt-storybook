@@ -27,7 +27,10 @@ Key takeaways:
 
 ## Outline
 
-TBD
+1. Understanding our React app
+2. Manually testing Storybook components
+3. Visually testing Storybook components
+4. Testing components across different browsers
 
 
 ## Prerequisites
