@@ -107,6 +107,15 @@ function App() {
       </header>
 
       <header className="App-header" id="slide6">
+        <div className="storybook-img-container">
+          <img src="storybook-viewer.png" className="applitools-img"/>
+        </div>
+        <p>We can check Storybook components manually, but we would probably miss things.</p>
+        <p>It's also a hassle to test components across different browsers.</p>
+        <p className="scroll-arrow-margin"><ScrollButton scrollToId="slide7" /></p>
+      </header>
+
+      <header className="App-header" id="slide7">
         <p>Let's see how to visually test Storybook components with Applitools!</p>
         <div className="applitools-img-container">
           <img src="applitools-dashboard.png" className="applitools-img"/>

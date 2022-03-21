@@ -64,6 +64,13 @@ p {
   margin-bottom: 1em;
 }
 
+.storybook-img-container {
+  height: 50vh;
+  width: 75vw;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .applitools-img-container {
   height: 60vh;
   width: 75vw;
