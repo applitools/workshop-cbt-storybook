@@ -1,0 +1,10 @@
+.storybook-text-input {
+  border: 0;
+  border-radius: 1em;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 18px;
+}
