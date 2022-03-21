@@ -35,13 +35,13 @@ Full instructions for the workshop are provided in [`WORKSHOP.md`](WORKSHOP.md).
 
 ## Quickstart
 
-To clone this repository:
+To **clone this repository**:
 
 ```bash
 git clone https://github.com/applitools/workshop-cbt-storybook.git
 ```
 
-To install the dependencies:
+To **install the dependencies**:
 
 ```bash
 cd applitools-react-storybook-demo
@@ -52,7 +52,7 @@ npm install
 > This project was initially created using
 > [Create React App](https://github.com/facebook/create-react-app).
 
-To launch the React app, run:
+To **launch the React app**, run:
 
 ```bash
 npm start
@@ -62,7 +62,7 @@ This command starts the app at `http://localhost:3000/`.
 When it loads, you should see the home page,
 which concisely explains the need for visual component testing.
 
-To launch the Storybook viewer, run:
+To **launch the Storybook viewer**, run:
 
 ```bash
 npm run storybook
@@ -72,7 +72,7 @@ This command starts the viewer at `http://localhost:6006/`.
 When it loads, you should see components on the left navbar,
 and the main part of the page should be a component viewer.
 
-To launch visual tests using Applitools,
+To **launch visual tests using Applitools**,
 set the `APPLITOOLS_API_KEY` environment variable to your secret API key,
 and then run:
 
