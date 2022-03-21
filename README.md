@@ -1,3 +1,5 @@
+![Cross Browser Testing for Storybook Components](images/cbt-storybook-banner.png)
+
 # Modern Cross Browser Testing for Storybook Components
 
 This repository contains the example code for the
