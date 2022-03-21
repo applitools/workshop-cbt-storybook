@@ -91,7 +91,7 @@ function App() {
           <div><Button primary label="Click me!" rectangular="true" size="large"></Button></div>
           <div>The "baseline"</div>
           <div></div>
-          <div>The "latest"</div>
+          <div>The "checkpoint"</div>
         </div>
         <p><a
             className="App-link"
@@ -102,7 +102,7 @@ function App() {
           Applitools Eyes
           </a> does this automatically for Storybook components.
         </p>
-        <p>It captures screenshots for each story and uses <b>Visual AI</b> for comparisons.</p>
+        <p>It captures snapshots for each story and uses <b>Visual AI</b> for comparisons.</p>
         <p className="scroll-arrow-margin"><ScrollButton scrollToId="slide6" /></p>
       </header>
 
