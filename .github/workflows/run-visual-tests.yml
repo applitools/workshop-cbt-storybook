@@ -1,0 +1,23 @@
+name: Run Visual Component Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run visual component tests
+        run: npx eyes-storybook -s public
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
