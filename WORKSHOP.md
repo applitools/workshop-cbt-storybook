@@ -380,3 +380,17 @@ Applitools Eyes, on the other hand, turns each component story into an automated
 It's an easy win: lots of coverage for little additional effort.
 Adding visual component testing to your testing strategy can reduce the amount of end-to-end coverage needed.
 
+The best way to run these visual tests is to run them automatically whenever the code changes.
+For example, you can set up a [GitHub Action](https://github.com/features/actions)
+to run these tests whenever someone opens a pull request or merges code.
+This repository has an example workflow named
+[run-visual-tests.yml](https://github.com/applitools/workshop-cbt-storybook/actions/workflows/run-visual-tests.yml)
+that runs the tests via manual trigger.
+You can reference this GitHub Action as a basis for your own!
+
+> *Note:*
+> You will need to add your Applitools API key as a repository secret
+> and then set it in the GitHub Action as an environment variable.
+
+Remember, tests should work for *you*, not the other way around!
+They should offer protection and fast feedback.
