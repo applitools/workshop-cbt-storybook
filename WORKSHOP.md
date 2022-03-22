@@ -302,4 +302,49 @@ Then, undo the code changes, rerun the tests, and make sure things pass.
 
 ## Testing components across different browsers
 
-TBD
+So far, all our visual tests have run against Google Chrome.
+Applitools makes it easy to run visual component tests against *any* browser
+using [Applitools Ultrafast Grid](https://applitools.com/docs/topics/overview/using-the-ultrafast-grid.html).
+All you need to do is add browser configs to `applitools.config.js`.
+
+Let's cover 5 desktop browsers and 5 mobile browsers.
+Overwrite `applitools.config.js` with the following content:
+
+```javascript
+module.exports = {
+  concurrency: 1,
+  batchName: "Visually Testing Storybook Components",
+  browser: [
+    // Desktop
+    {width: 800, height: 600, name: 'chrome'},
+    {width: 700, height: 500, name: 'firefox'},
+    {width: 1600, height: 1200, name: 'ie11'},
+    {width: 1024, height: 768, name: 'edgechromium'},
+    {width: 800, height: 600, name: 'safari'},
+    // Mobile
+    {deviceName: 'iPhone X', screenOrientation: 'portrait'},
+    {deviceName: 'Pixel 2', screenOrientation: 'portrait'},
+    {deviceName: 'Galaxy S5', screenOrientation: 'portrait'},
+    {deviceName: 'Nexus 10', screenOrientation: 'portrait'},
+    {deviceName: 'iPad Pro', screenOrientation: 'landscape'},
+  ]
+}
+```
+
+The desktop browser configs include width and height viewport sizes,
+while mobile devices require device names and screen orientations.
+
+> *Note:*
+> If you have a free account,
+> then your concurrency will be limited to 1.
+
+Run the visual tests again.
+They will take a little longer than before.
+Once finished, you will see that the Applitools Dashboard has several new baselines
+for a total of 90 tests.
+
+![Applitools Dashboard with Cross-Browser Test Results](images/applitools-dash-cbt.png)
+
+Notice also how quickly the Ultrafast Grid ran these test: 90 tests in 32 seconds.
+That's *way* faster than traditional cross-browser testing platforms!
+The only "code" you had to write was a configuration file, too!
