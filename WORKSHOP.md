@@ -352,3 +352,31 @@ for a total of 90 tests.
 Notice also how quickly the Ultrafast Grid ran these test: 90 tests in 32 seconds.
 That's *way* faster than traditional cross-browser testing platforms!
 The only "code" you had to write was a configuration file, too!
+
+
+## Adding visual tests to a development workflow
+
+Visual component testing is great, but how do we add it to a typical development workflow?
+Traditionally, web app testing breaks down into three levels:
+
+1. Unit testing
+2. Integration testing via APIs
+3. End-to-end testing via UIs (sometimes with API assistance)
+
+Component testing squeezes in between the API integration and UI end-to-end levels.
+A component is like a "unit" of the user interface.
+In that sense, component testing is like "UI unit" testing.
+Components are implicitly covered as part of end-to-end testing,
+but testing them individually as "UI units" enables us to pinpoint problems quickly and directly,
+just like unit tests.
+More component testing could mean less end-to-end testing is required.
+
+![Web App Test Levels](images/web-app-test-levels.png)
+
+Visual component testing with Applitools Eyes Storybook SDK is an easy way to cover this level of testing.
+Unit, integration, and end-to-end tests all require engineers to write new tests.
+That's a significant work effort.
+Applitools Eyes, on the other hand, turns each component story into an automated test case with no extra coding required.
+It's an easy win: lots of coverage for little additional effort.
+Adding visual component testing to your testing strategy can reduce the amount of end-to-end coverage needed.
+

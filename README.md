@@ -27,6 +27,7 @@ Full instructions for the workshop are provided in [`WORKSHOP.md`](WORKSHOP.md).
 3. Preparing for visual testing
 4. Visually testing Storybook components
 5. Testing components across different browsers
+6. Adding visual tests to a development workflow
 
 
 ## Prerequisites
