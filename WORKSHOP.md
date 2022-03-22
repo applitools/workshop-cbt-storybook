@@ -123,9 +123,181 @@ Furthermore, opening the Storybook view in different browsers would multiply the
 We need a more effective way to test the whole library.
 
 
+## Preparing for visual testing
+
+Applitools Eyes makes it easy to test all components visually.
+To get started, you need an Applitools account.
+You can [register a free Applitools account](https://auth.applitools.com/users/register)
+using your email or GitHub account.
+
+Then, you need to set your account's API key as an environment variable.
+Applitools should have sent you an email with your API key when you created your account.
+You can also access your API key through the Applitools dashboard.
+
+On Windows:
+
+```
+set APPLITOOLS_API_KEY=<your-api-key>
+```
+
+On Linux or macOS:
+
+```bash
+export APPLITOOLS_API_KEY=<your-api-key>
+```
+
+Next, you need to add the
+[eyes-storybook](https://www.npmjs.com/package/@applitools/eyes-storybook)
+package to your project.
+This package should have been installed when you ran `npm install` earlier.
+However, if you want to install it in other projects, use the following command:
+
+```bash
+npm install --save-dev @applitools/eyes-storybook
+```
+
+Finally, you should configure Applitools configurations in a file named `applitools.config.js`.
+For example, you might want to set `batchName` to a descriptive name for your test suite,
+since this name will appear in the Applitools dashboard.
+The [npm package page](https://www.npmjs.com/package/@applitools/eyes-storybook)
+provides documentation on `applitools.config.js` settings under the
+[Advanced configuration](https://www.npmjs.com/package/@applitools/eyes-storybook#advanced-configuration)
+section.
+
+This project already has `applitools.config.js`.
+For our first visual tests,
+overwrite its contents with the following:
+
+```javascript
+module.exports = {
+  concurrency: 1,
+  batchName: "Visually Testing Storybook Components"
+}
+```
+
+Now, we are ready to start running visual tests!
+
+
 ## Visually testing Storybook components
 
-TBD
+The first step in visual component testing is creating a set of *baseline* snapshots for each component.
+The baseline images represent the "good" or "proper" visual state for the components.
+When visual component tests run in the future,
+they will compare the baselines to new snapshots to detect any changes.
+
+Capture baselines by running the visual tests with this command:
+
+```bash
+npx eyes-storybook
+```
+
+In the console output, you should see the tests discover all Storybook stories
+and capture "New" results for each.
+When you log into the [Applitools dashboard](https://eyes.applitools.com/),
+You should see a new test batch with snapshots for all components.
+The status of each test should say "New" here, too.
+
+![Applitools Dashboard with New Baselines](images/applitools-dash-new.png)
+
+Once baselines are captured, you can run *checkpoint* tests for each component.
+Rerun the visual tests again without making any changes.
+Use the same command to launch tests:
+
+```
+npx eyes-storybook
+```
+
+Now, the console output and the new batch in the dashboard should say "Passed" instead of "New" for each story.
+Each test result in the dashboard can also be manually inspected next to the baseline.
+
+![Applitools Dashboard with Passing Checkpoints](images/applitools-dash-passed.png)
+
+Let's make a change to one of the components.
+In `src/stories/button.css`, change this:
+
+```css
+.storybook-button--primary {
+  color: white;
+  background-color: #1ea7fd;
+}
+```
+
+To this:
+
+```css
+.storybook-button--primary {
+  color: white;
+  background-color: #f80606;
+}
+```
+
+Save the file, and rerun the visual tests.
+This time, Applitools Eyes detects that a few components are different!
+These tests are marked as "Unresolved" because someone needs to decide if they are okay or not okay.
+You can log into the dashboard to see the changes firsthand: blue buttons became red.
+You can then decide if they are okay ("thumbs-up") or not okay ("thumbs-down").
+
+![Applitools Dashboard Button Comparison](images/applitools-dash-button-compare.png)
+
+While comparing snapshots, go to "View" and select "Preview match level".
+The default setting is "Strict", which aims to detect changes as a human eye would see.
+Under this setting, the whole button should be highlighted.
+However, if you change it to "Content", then the highlighting disappears.
+"Content" is like "Strict" but ignores color and small stylistic difference.
+If you change it to "Layout", the highlighting also disappears,
+because "Layout" looks for changes in element positions relative to each other.
+You can use different match levels to help determine if changes are okay.
+
+![Applitools Dashboard Content Match Level](images/applitools-dash-content-match.png)
+
+Let's say this change is okay.
+Mark the "Unresolved" tests as "Passed" by clicking the thumbs-up icon.
+Save the changes in the dashboard.
+This will save new baselines.
+Rerun the tests, and they should pass again.
+
+![Applitools Dashboard Reruns after Accepting a Change](images/applitools-dash-rerun-after-pass.png)
+
+Some components are more complex than others.
+Changes in content might be okay, while changes in layout might be problematic.
+Let's make a change to the `Header` component.
+In `src/stories/Header.jsx`, change this:
+
+```javascript
+<h1>Visually Testing Storybook Components</h1>
+```
+
+To this:
+
+```javascript
+<h1>My Cool Site</h1>
+```
+
+Also, in `src/stories/header.css`, remove this line:
+
+```css
+justify-content: space-between;
+```
+
+Save the file, and rerun the visual tests.
+Again, Applitools Eyes detects differences and marks them "Unresolved".
+
+In the Applitools dashboard, open the results for one of the `Header` stories.
+Compare the latest snapshot to the baseline.
+Applitools should highlight the titles and buttons ans different.
+Change the match level from "Strict" to "Content" and "Layout" again.
+This time, "Content" still highlights almost as much difference as "Strict"
+because the header changed a lot.
+"Layout", however, only highlights buttons because it ignores the word change.
+
+![Applitools Dashboard Header Comparison](images/applitools-dash-header-compare.png)
+
+Let's say these changes are *not* okay.
+Mark the "Unresolved" tests as "Failed" by clicking the thumbs-down icon.
+Save the changes in the dashboard.
+Then, undo the code changes, rerun the tests, and make sure things pass.
+
+![Applitools Dashboard Reruns after Rejecting a Change](images/applitools-dash-rerun-after-fail.png)
 
 
 ## Testing components across different browsers

@@ -24,8 +24,9 @@ Full instructions for the workshop are provided in [`WORKSHOP.md`](WORKSHOP.md).
 
 1. Understanding our React app
 2. Manually testing Storybook components
-3. Visually testing Storybook components
-4. Testing components across different browsers
+3. Preparing for visual testing
+4. Visually testing Storybook components
+5. Testing components across different browsers
 
 
 ## Prerequisites
