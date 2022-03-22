@@ -81,7 +81,7 @@ set the `APPLITOOLS_API_KEY` environment variable to your secret API key,
 and then run:
 
 ```bash
-npx eyes-storybook
+npx eyes-storybook -s public
 ```
 
 Visual test results will appear in the Applitools dashboard.

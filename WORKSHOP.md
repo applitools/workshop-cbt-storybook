@@ -188,8 +188,12 @@ they will compare the baselines to new snapshots to detect any changes.
 Capture baselines by running the visual tests with this command:
 
 ```bash
-npx eyes-storybook
+npx eyes-storybook -s public
 ```
+
+> The `-s public` option sets the static directory path.
+> If this is not set, then visual tests for `ScrollButton` will not work
+> because they need access to `public/white-down-arrow.png`.
 
 In the console output, you should see the tests discover all Storybook stories
 and capture "New" results for each.
@@ -204,7 +208,7 @@ Rerun the visual tests again without making any changes.
 Use the same command to launch tests:
 
 ```
-npx eyes-storybook
+npx eyes-storybook -s public
 ```
 
 Now, the console output and the new batch in the dashboard should say "Passed" instead of "New" for each story.
