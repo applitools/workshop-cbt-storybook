@@ -99,7 +99,28 @@ and then we'll test the components visually using Applitools.
 
 ## Manually testing Storybook components
 
-TBD
+Launch the Storybook viewer like this:
+
+```bash
+npm run storybook
+```
+
+This command starts the viewer at `http://localhost:6006/`.
+When it loads, you should see components on the left sidebar,
+and the main part of the page should be a component viewer.
+
+![Storybook Viewer](public/storybook-viewer.png)
+
+Our app has 4 components: `Button`, `Header`, `ScrollButton`, and `TextInput`.
+Each one has multiple "stories," or ways to render it.
+We can expand each component in the left sidebar to see all its stories.
+We can also directly set different properties to twiddle aspects of each component.
+
+Doing this manually while developing components is incredibly helpful
+because it provides instant feedback for code changes.
+However, inspecting every component manually for every change is very tedious.
+Furthermore, opening the Storybook view in different browsers would multiply the tedium.
+We need a more effective way to test the whole library.
 
 
 ## Visually testing Storybook components
